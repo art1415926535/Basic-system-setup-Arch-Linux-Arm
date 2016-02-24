@@ -38,7 +38,7 @@ while true; do
             cp /etc/X11/xinit/xinitrc /home/"$username"/.xinitrc
             
             while true; do
-                read -p "Install cinnamon/enlightenment/gnome/plasma/lxde/mate/xfce4/nothing?" env
+                read -p "Install [cinnamon/enlightenment/gnome/plasma/lxde/mate/xfce4/nothing]?" env
                 case "$evn" in
                     "cinnamon" )
                             pacman -Syu cinnamon
@@ -78,7 +78,7 @@ while true; do
                     "nothing" ) 
                     break;;
 
-                    * ) echo "Please type name desktop environment or \"nothing\"";;
+                    * ) echo "Please type name desktop environment or \"nothing\"";
                 esac
             done
             break;;
