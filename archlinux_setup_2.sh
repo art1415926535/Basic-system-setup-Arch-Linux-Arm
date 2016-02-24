@@ -32,58 +32,58 @@ done
 
 
 while true; do
-	read -p "Install desktop environment? [y/n]: " yn
-	case $yn in
-	    [Yy]* )
+    read -p "Install desktop environment? [y/n]: " yn
+    case $yn in
+        [Yy]* )
+            cp /etc/X11/xinit/xinitrc /home/"$username"/.xinitrc
+            
+            while true; do
+                read -p "Install cinnamon/enlightenment/gnome/plasma/lxde/mate/xfce4/nothing?" env
+                case "$evn" in
+                    "cinnamon" )
+                            pacman -Syu cinnamon
+                            "exec cinnamon-session" >> /home/"$username"/.xinitrc
+                    break;;
+                    
+                    "enlightenment" )	
+                            pacman -Syu enlightenment
+                            "exec enlightenment_start" >> /home/"$username"/.xinitrc
+                    break;;
+                    
+                    "gnome" )	
+                            pacman -Syu gnome
+                            "exec gnome-session" >> /home/"$username"/.xinitrc
+                    break;;
+                    
+                    "plasma" )	
+                            pacman -Syu plasma
+                            "exec startkde" >> /home/"$username"/.xinitrc
+                    break;;
+                    
+                    "lxde" )	
+                            pacman -Syu lxde
+                            "exec startlxde" >> /home/"$username"/.xinitrc
+                    break;;
+                    
+                    "mate" )	
+                            pacman -Syu mate
+                            "exec mate-session" >> /home/"$username"/.xinitrc
+                    break;;
+                    
+                    "xfce4" )	
+                            pacman -Syu xfc4
+                            "exec startxfce4" >> /home/"$username"/.xinitrc
+                    break;;
+                    
+                    "nothing" ) 
+                    break;;
 
-		cp /etc/X11/xinit/xinitrc /home/"$username"/.xinitrc
-		
-		while true; do
-		    read -p "Install cinnamon/enlightenment/gnome/plasma/lxde/mate/xfce4/nothing?" env
-		    case "$evn" in
-		        "cinnamon" )
-				pacman -Syu cinnamon
-				"exec cinnamon-session" >> /home/"$username"/.xinitrc
-			break;;
-		        
-		        "enlightenment" )	
-				pacman -Syu enlightenment
-				"exec enlightenment_start" >> /home/"$username"/.xinitrc
-			break;;
-		        
-		        "gnome" )	
-				pacman -Syu gnome
-				"exec gnome-session" >> /home/"$username"/.xinitrc
-			break;;
-		        
-		        "plasma" )	
-				pacman -Syu plasma
-				"exec startkde" >> /home/"$username"/.xinitrc
-			break;;
-		        
-		        "lxde" )	
-				pacman -Syu lxde
-				"exec startlxde" >> /home/"$username"/.xinitrc
-			break;;
-			
-		        "mate" )	
-				pacman -Syu mate
-				"exec mate-session" >> /home/"$username"/.xinitrc
-			break;;
-		        
-		        "xfce4" )	
-				pacman -Syu xfc4
-				"exec startxfce4" >> /home/"$username"/.xinitrc
-			break;;
-		        
-			"nothing" ) 
-			break;;
-
-		        * ) echo "Please type name desktop environment or \"nothing\"";;
-		    esac
-		done
-	    [Nn]* ) break;;
-	esac
+                    * ) echo "Please type name desktop environment or \"nothing\"";;
+                esac
+            done
+            ;;
+        [Nn]* ) break;;
+    esac
 done
 
 
