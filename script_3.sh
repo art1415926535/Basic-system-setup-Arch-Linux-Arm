@@ -18,6 +18,59 @@ done
 
 while true; do
     echo ""
+    read -p "Install display manager? [y/n]: " yn
+    case $yn in
+        [Yy]* )
+            while true; do
+                echo ""
+                read -p "Install and enable [SDDM/LightDM/lxdm/XDM/GDM/nothing]? " dm
+                case "$dm" in
+                    "SDDM" )
+                        pacman -Syu SDDM
+                        systemctl enable sddm
+                        systemctl start sddm
+                    break;;
+                    
+                    "LightDM" )
+                        pacman -Syu lightdm
+                        systemctl enable lightdm.service
+                        systemctl start lightdm.service
+                    break;;
+                    
+                    "lxdm" )
+                        pacman -Syu lxdm
+                        systemctl enable lxdm.service
+                        systemctl start lxdm.service
+                    break;;
+                    
+                    "LightDM" )
+                        pacman -Syu xorg-xdm
+                        systemctl enable xdm.service
+                        systemctl start xdm.service
+                    break;;
+                    
+                    "GDM" )
+                        pacman -Syu gdm
+                        systemctl enable gdm.service
+                        systemctl start gdm.service
+                    break;;
+                    
+                    "nothing" ) 
+                    break;;
+
+                    * ) echo "Please type name display manager or \"nothing\"";
+                esac
+            done
+            break;;
+        [Nn]* ) break;;
+    esac
+done
+
+
+
+
+while true; do
+    echo ""
     read -p "Install desktop environment? [y/n]: " yn
     case $yn in
         [Yy]* )

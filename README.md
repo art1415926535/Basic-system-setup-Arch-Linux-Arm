@@ -51,8 +51,9 @@ chmod +x script_3.sh && ./script_3.sh
 ```
 **What it's doing:**
 * Install xrdp: `xrdp xf86-video-fbdev xf86-input-synaptics xorg-server xorg-server-utils xorg-xinit mesa xf86-input-keyboard xf86-input-mouse xterm `
+* Install and enable display manager: `SDDM / LightDM / lxdm / XDM / GDM`
 * Install desktop environment: `cinnamon / enlightenment / gnome / plasma / lxde / mate / xfce4`
-* Add line `exec some_env` in ~/.xinitrc
+* Add line `exec installed_env` in ~/.xinitrc
 <br>
 
 ------------------------
