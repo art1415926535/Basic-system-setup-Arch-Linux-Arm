@@ -30,37 +30,37 @@ while true; do
                 case "$env" in
                     "cinnamon" )
                         pacman -Syu cinnamon
-                        "exec cinnamon-session" >> /home/"$username"/.xinitrc
+                        echo "exec cinnamon-session" >> /home/"$username"/.xinitrc
                     break;;
                     
                     "enlightenment" )	
                         pacman -Syu enlightenment
-                        "exec enlightenment_start" >> /home/"$username"/.xinitrc
+                        echo "exec enlightenment_start" >> /home/"$username"/.xinitrc
                     break;;
                     
                     "gnome" )	
                         pacman -Syu gnome
-                        "exec gnome-session" >> /home/"$username"/.xinitrc
+                        echo "exec gnome-session" >> /home/"$username"/.xinitrc
                     break;;
                     
                     "plasma" )	
                         pacman -Syu plasma
-                        "exec startkde" >> /home/"$username"/.xinitrc
+                        echo "exec startkde" >> /home/"$username"/.xinitrc
                     break;;
                     
                     "lxde" )	
                         pacman -Syu lxde
-                        "exec startlxde" >> /home/"$username"/.xinitrc
+                        echo "exec startlxde" >> /home/"$username"/.xinitrc
                     break;;
                     
                     "mate" )	
                         pacman -Syu mate
-                        "exec mate-session" >> /home/"$username"/.xinitrc
+                        echo "exec mate-session" >> /home/"$username"/.xinitrc
                     break;;
                     
                     "xfce4" )	
                         pacman -Syu xfce4
-                        "exec startxfce4" >> /home/"$username"/.xinitrc
+                        echo "exec startxfce4" >> /home/"$username"/.xinitrc
                     break;;
                     
                     "nothing" ) 
