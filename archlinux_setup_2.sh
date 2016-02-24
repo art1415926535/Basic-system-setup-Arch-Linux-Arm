@@ -81,7 +81,7 @@ while true; do
                     * ) echo "Please type name desktop environment or \"nothing\"";;
                 esac
             done
-            ;;
+            break;;
         [Nn]* ) break;;
     esac
 done
