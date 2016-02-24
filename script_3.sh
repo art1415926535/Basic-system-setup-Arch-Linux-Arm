@@ -21,6 +21,7 @@ while true; do
     read -p "Install desktop environment? [y/n]: " yn
     case $yn in
         [Yy]* )
+            read -p "Username for change .xinitrc: " username
             cp /etc/X11/xinit/xinitrc /home/"$username"/.xinitrc
             
             while true; do
