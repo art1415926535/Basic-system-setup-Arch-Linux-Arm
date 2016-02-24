@@ -1,12 +1,10 @@
-su
-echo "Install NTP"
-pacman -S ntp
+pacman -S --needed ntp
 systemctl enable ntpd.service
 systemctl start ntpd.service
 
-pacman -Syu --needed sudo git python python2 python-pip python2-pip zsh nfs-utils htop openssh alsa-utils alsa-firmware alsa-lib alsa-plugins whet base-devel 
-diffutils 
+pacman -Syu --needed sudo git python python2 python-pip python2-pip zsh nfs-utils htop openssh alsa-utils alsa-firmware alsa-lib alsa-plugins whet base-devel diffutils 
 
+echo ""
 echo "Type username, followed by [ENTER]:"
 read username
 useradd -d /home/"$username" -m -G wheel -s /usr/bin/zsh "$username"
@@ -18,10 +16,9 @@ sed -i 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/g' /etc/sudoers
 
 
 while true; do
-    read -p "Install xrdp?" yn
+    read -p "Install xrdp? [y/n]: " yn
     case $yn in
-        [Yy]* ) pacman -Syu --needed xrdp xf86-video-fbdev xf86-input-synaptics xorg-server xorg-server-utils xorg-xinit mesa xf86-input-keyboard xf86-input-mouse 
-xterm 
+        [Yy]* ) pacman -Syu --needed xrdp xf86-video-fbdev xf86-input-synaptics xorg-server xorg-server-utils xorg-xinit mesa xf86-input-keyboard xf86-input-mouse xterm 
 		
 		echo "Autoboot xrdp at Startup"
 		systemctl enable xrdp.service
@@ -35,7 +32,7 @@ done
 
 
 while true; do
-	read -p "Install desktop environment?" yn
+	read -p "Install desktop environment? [y/n]: " yn
 	case $yn in
 	    [Yy]* )
 

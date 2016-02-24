@@ -1,6 +1,3 @@
-
-su
- 
 loadkeys ru
 echo LANG=ru_RU.UTF-8 > /etc/locale.conf
 echo KEYMAP=de-latin1-nodeadkeys > /etc/vconsole.conf
